@@ -1,0 +1,28 @@
+{
+  "👻 request get 请求": {
+    "prefix": "reqGet",
+    "body": [
+      "// 获取 ${2:description}",
+      "export function ${1:functionName}(params: any) {",
+      "  return request<Response>({",
+      "    url: `${3:/api/path}`,",
+      "    method: 'GET',",
+      "    params",
+      "  });$0",
+      "}"
+    ]
+  },
+  "👻 request post 请求": {
+    "prefix": "reqPost",
+    "body": [
+      "// 获取 ${2:description}",
+      "export function ${1:functionName}(params: any) {",
+      "  return request<Response>({",
+      "    url: `${3:/api/path}`,",
+      "    method: 'POST',",
+      "    data: params",
+      "  });$0",
+      "}"
+    ]
+  }
+}

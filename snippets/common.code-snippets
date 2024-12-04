@@ -1,0 +1,198 @@
+{
+  "👻 打印日志": {
+    "prefix": "clg",
+    "body": "console.log('$0');"
+  },
+  "👻 import 导入整个模块": {
+    "prefix": "imd",
+    "body": "import ${2:moduleName} from ${1:module};$0"
+  },
+  "👻 解构形式 import 导入": {
+    "prefix": "imf",
+    "body": "import { $2 } from '${1:module}';$0"
+  },
+  "👻 定义 const": {
+    "prefix": "const",
+    "body": ["const $1 = $2;$0"]
+  },
+  "👻 定义 let": {
+    "prefix": "let",
+    "body": ["let $1 = $2;$0"]
+  },
+  "👻 创建 if": {
+    "prefix": "if",
+    "body": ["if ($1) {", "  $0", "}"]
+  },
+  "👻 定义 interface": {
+    "prefix": "interface",
+    "body": ["interface ${1:Props} {", "$0", "}"]
+  },
+  "👻 定义对象 key 的 ts 类型": {
+    "prefix": "keyof",
+    "body": ["type ${2:Type} = keyof typeof ${1:Object};$0"]
+  },
+  "👻 创建枚举数组": {
+    "prefix": "options",
+    "body": ["export const $1 = [", "  { label: ${2: ''}, value: $3 }", "];$0"]
+  },
+  "👻 创建枚举对象": {
+    "prefix": "map",
+    "body": ["export const $1 = {", "$0", "} as const"]
+  },
+  "👻 TODO 待完成": {
+    "prefix": "todo",
+    "body": ["// TODO: ${0: 待完善}"]
+  },
+  "👻 FIXME 待修复": {
+    "prefix": "fixme",
+    "body": ["// FIXME: ${0: 待修复}"]
+  },
+  "👻 try catch": {
+    "prefix": "tr",
+    "body": [
+      "try {",
+      "  ${0:handle}()",
+      "} catch (e) {",
+      "  console.error(e);",
+      "}"
+    ]
+  },
+  "👻 创建箭头函数方法": {
+    "prefix": "handle",
+    "body": ["const handle${1} = ($2) => {", "  ${3}", "};$0"]
+  },
+  "👻 创建 yield 方法": {
+    "prefix": "*",
+    "body": [
+      "*$1({ payload, callback }, { call, put }) {",
+      "  const response = yield call($2, payload)",
+      "  $0",
+      "}"
+    ]
+  },
+  "👻 成功提示信息": {
+    "prefix": "mss",
+    "body": ["message.success('$1');$0"]
+  },
+  "👻 错误提示信息": {
+    "prefix": "msr",
+    "body": ["message.error('$1');$0"]
+  },
+  "👻 写 div 标签": {
+    "prefix": "div",
+    "body": ["<div className={styles.$0}></div>"]
+  },
+  "👻 创建 ref": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "ref",
+    "body": ["const $1 = ref<$2>($3);$0"]
+  },
+  "👻 创建 reactive": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "reactive",
+    "body": ["const $1 = reactive<$2>({", "  $3", "});$0"]
+  },
+  "👻 创建 computed": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "computed",
+    "body": ["const $1 = computed(() => {", "  $2", "});$0"]
+  },
+  "👻 创建 watch": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "watch",
+    "body": [
+      "watch(() => $1, (newVal, oldVal) => {",
+      "  $2",
+      "}, { deep: true });$0"
+    ]
+  },
+  "👻 创建 watchEffect": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "watchEffect",
+    "body": ["watchEffect(() => {", "  $1", "});$0"]
+  },
+  "👻 创建 onMounted": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "mounted",
+    "body": ["onMounted(() => {", "  $1", "});$0"]
+  },
+  "👻 创建 defineProps": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "props",
+    "body": [
+      "const props = defineProps<{",
+      "  ${1:propName}: ${2:type}",
+      "}>();$0"
+    ]
+  },
+  "👻 创建 defineEmits": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "emits",
+    "body": ["const emit = defineEmits<{", "  ${1:eventName}: [$2]", "}>();$0"]
+  },
+  "👻 创建 setup script": {
+    "scope": "vue",
+    "prefix": "setup",
+    "body": ["<script setup lang=\"ts\">", "$1", "</script>"]
+  },
+  "👻 创建 vue style": {
+    "scope": "vue",
+    "prefix": "style",
+    "body": ["<style scoped lang=\"less\">", "$1", "</style>"]
+  },
+  "👻 创建 v-for": {
+    "scope": "vue,vue-html",
+    "prefix": "v-for",
+    "body": ["v-for=\"(item, index) in $1\" :key=\"${2:index}\"$0"]
+  },
+  "👻 创建 useRequest 请求": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "useRequest",
+    "body": [
+      "const { data: ${1:data}, loading, run: ${2:runFetch} } = useRequest(${3:api}, {",
+      "  manual: true,",
+      "  onSuccess: (res) => {",
+      "    $4",
+      "  }",
+      "});$0"
+    ]
+  },
+  "👻 创建 table columns": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "columns",
+    "body": [
+      "const columns = [",
+      "  {",
+      "    title: '${1:标题}',",
+      "    dataIndex: '${2:key}',",
+      "    width: '${3:100}'",
+      "  }$0",
+      "]"
+    ]
+  },
+  "👻 表单提交": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "submit",
+    "body": [
+      "const handleSubmit = async () => {",
+      "  await formRef.value?.validate()",
+      "  message.success('操作成功！');$0",
+      "  $1",
+      "}"
+    ]
+  },
+  "👻 表单 validate": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "validate",
+    "body": [
+      "await formRef.value?.validate()",
+      "message.success('操作成功！');$0",
+      "$1"
+    ]
+  },
+  "👻 创建 router 跳转": {
+    "scope": "vue,typescript,javascript",
+    "prefix": "router",
+    "body": ["const route = useRoute();", "router.push(${1:path});$0"]
+  }
+}
